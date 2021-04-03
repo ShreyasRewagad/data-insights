@@ -1,0 +1,51 @@
+{
+  "Data": {
+    "invoice_data": {
+      "file_path": "/Users/shreyas/Downloads/data/invoice.csv",
+      "string_columns": [
+        "invoice_id",
+        "canonical_vendor_id"
+      ],
+      "datetime_columns": [
+        "invoice_date",
+        "due_date",
+        "period_start_date",
+        "period_end_date"
+      ],
+      "float_columns": [
+        "total_amount"
+      ]
+    },
+    "line_item_data": {
+      "file_path": "/Users/shreyas/Downloads/data/line_item.csv",
+      "string_columns": [
+        "invoice_id",
+        "line_item_id",
+        "canonical_line_item_id"
+      ],
+      "datetime_columns": [
+        "period_start_date",
+        "period_end_date"
+      ],
+      "float_columns": [
+        "total_amount"
+      ]
+    }
+  },
+  "Gleans": {
+      "VendorNotSeenInAWhile": {
+        "invoice_data_loader": "invoice_data"
+      },
+      "AccrualAlert": {
+        "invoice_data_loader": "invoice_data",
+        "line_item_data_loader": "line_item_data"
+      },
+      "LargeMonthIncreaseMtd": {
+        "invoice_data_loader": "invoice_data"
+      },
+      "NoInvoiceReceived":  {
+        "invoice_data_loader": "invoice_data"
+      }
+    },
+  "OutputPath": "/Users/shreyas/temp/gleans.csv"
+}
